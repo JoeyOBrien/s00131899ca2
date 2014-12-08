@@ -1,0 +1,119 @@
+﻿@model IEnumerable<ca2.Models.Movie>
+@{
+    ViewBag.Title = "Index";
+}
+<div class="container">
+    <h2>List of Movies</h2>
+    <p>
+        <a class="btn btn-success" href="@Url.Action("Create")">
+            <span class="glyphicon glyphicon-film" aria-hidden="true"></span>&nbsp;&nbsp;Create New Movie
+        </a>
+    </p>
+    <div class="col-xs-8">
+        <table class="table table-condensed table-striped">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Title)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Director)
+                </th>
+                <th>
+                    <a class="btn btn-xs btn-primary" href="@Url.Action("Index", new { sortOrder = @ViewBag.numberOrder })">Release Date</a>
+                </th>
+                <th>
+                    <a class="btn btn-xs btn-primary" href="@Url.Action("Index", new { sortOrder = @ViewBag.numberOrder })">Actor Count</a>
+                </th>
+                <th></th>
+            </tr>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        <span class="btn btn-xs btn-default" onclick="displayActors('@item.MovieId')">@Html.DisplayFor(modelItem => item.Title)</span>
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Director.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ReleaseDate)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Actors.Count)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { id = item.MovieId }, new { @class = "btn btn-xs btn-primary" })
+                        @Html.ActionLink("Details", "Details", new { id = item.MovieId }, new { @class = "btn btn-xs btn-info" })
+                        @Html.ActionLink("Delete", "Delete", new { id = item.MovieId }, new { @class = "btn btn-xs btn-danger" })
+                    </td>
+                </tr>
+            }
+        </table>
+    </div>
+    <div class="col-xs-4">
+        <div id="Detail"></div>
+            <div>
+                <form id="CreateActor">
+                    <div class="form-group" style="margin-top: 10px">
+                        <input type="hidden" name="selectedMovieId">
+                        <input type="submit" value="Add" class="btn btn-xs btn-success" style="margin-top: -5px;" />
+                        &nbsp;<input type="text" name="screenName"><span>&nbsp;to Movie</span>
+                    </div>
+                </form>
+            </div>
+        
+    </div>
+</div>
+@section scripts
+{
+    <script>
+        $(function () {
+            toastr.info('Movie Home Page');
+        @if (Model.Any())
+        {
+            // On start up display actors for first movie
+                <text>
+            displayActors(@Model.First().MovieId);
+                </text>
+        }
+        });
+
+        function displayActors(movieId) {
+            // When Movie Title clicked, use ajax to insert partial view
+            $.ajax({
+                type: "GET",
+                url: '@Url.Action("ActorsById")',
+                    data: { id: movieId },
+                    success: function (data) {
+                        $('#Detail').hide();
+                        $('#CreateActor').hide();
+                        $('#Detail').html(data);
+                        $('#Detail').fadeIn("slow");
+                        $('#CreateActor').find('input[name="selectedMovieId"]').val(movieId);
+                        $('#CreateActor').find('input[name="screenName"]').val("");
+                        $('#CreateActor').fadeIn("slow");
+                    },
+                    error: function (data) {
+                        $('#Detail').html('<h3>Error, Movie cannot be retrieved</h3>');
+                    }
+                });
+            }
+
+            // POSTBACK of creating a new actor
+            $('#CreateActor').submit(function () {
+                if ($(this).find('input[name="screenName"]').val() != "") {
+                    $.ajax({
+                        url: '@Url.Action("CreateActor")',
+                        type: "POST",
+                        data: $(this).serialize(), // serialize the input controls for this form
+                        success: function () {
+                            displayActors($('form').find('input[name="selectedMovieId"]').val()); // refresh the table of actors
+                            toastr.info($('form').find('input[name="screenName"]').val() + ' Added'); //toastr notification
+                            $('form').find('input[name="screenName"]').val(""); // empty actor box
+                        }
+                    });
+                }
+                return false;
+            });
+    </script>
+}

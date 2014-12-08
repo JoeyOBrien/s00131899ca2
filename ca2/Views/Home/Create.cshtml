@@ -1,0 +1,50 @@
+﻿@model ca2.Models.Movie
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<div class="container">
+    <div class="panel panel-info">
+        <div class="panel-heading">
+            <div class="lead">Create Movie</div>
+        </div>
+
+        @using (Html.BeginForm())
+        {
+            @Html.ValidationSummary(true)
+
+            <div class="row" style="margin:1px">
+                    <div class="form-group col-xs-4">
+                        @Html.LabelFor(model => model.Title)
+                        @Html.TextBoxFor(model => model.Title, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.Title)
+                    </div>
+                    <div class="form-group col-xs-4">
+                        @Html.LabelFor(model => model.ReleaseDate)
+                        @Html.TextBoxFor(model => model.ReleaseDate, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.ReleaseDate)
+                    </div>
+                    <div class="col-xs-4">
+                        @Html.LabelFor(model => model.Director)
+                        @Html.DropDownList("DirectorId", new SelectList(ViewBag.directors, "DirectorID", "Name"),
+                            new { @class = "form-control" })
+                    </div>
+            </div>
+            <div class="container">
+                <button class="btn btn-success"><span class="glyphicon glyphicon-plus"></span>Create Movie</button>
+            </div>
+        }
+
+        <div class="panel-footer">
+            <a class="btn btn-primary" href="@Url.Action("Index")">
+                <span class="glyphicon glyphicon-home"></span>&nbsp;&nbsp;Back to Home Page
+            </a>
+        </div>
+    </div>
+</div>
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
