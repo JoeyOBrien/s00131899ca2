@@ -211,16 +211,22 @@
     <None Include="Scripts\jquery-1.9.1.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+<<<<<<< HEAD
     <Content Include="Scripts\Chart.js" />
     <Content Include="Scripts\Chart.min.js" />
+=======
+>>>>>>> 30c066fafa3b636dade4ba731a5ee39abf35641d
     <Content Include="Scripts\jquery-1.9.1.js" />
     <Content Include="Scripts\jquery-1.9.1.min.js" />
     <Content Include="Scripts\jquery-1.9.1.min.map" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
     <Content Include="Scripts\jquery-ui-1.8.24.js" />
     <Content Include="Scripts\jquery-ui-1.8.24.min.js" />
+<<<<<<< HEAD
     <Content Include="Scripts\jquery.peity.js" />
     <Content Include="Scripts\jquery.peity.min.js" />
+=======
+>>>>>>> 30c066fafa3b636dade4ba731a5ee39abf35641d
     <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
     <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
     <Content Include="Scripts\jquery.validate.js" />
@@ -230,10 +236,13 @@
     <Content Include="Scripts\knockout-2.2.0.debug.js" />
     <Content Include="Scripts\knockout-2.2.0.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
+<<<<<<< HEAD
     <Content Include="Scripts\moment-with-locales.js" />
     <Content Include="Scripts\moment-with-locales.min.js" />
     <Content Include="Scripts\moment.js" />
     <Content Include="Scripts\moment.min.js" />
+=======
+>>>>>>> 30c066fafa3b636dade4ba731a5ee39abf35641d
     <Content Include="Scripts\npm.js" />
     <Content Include="Scripts\toastr.js" />
     <Content Include="Scripts\toastr.min.js" />
@@ -254,7 +263,10 @@
     <Content Include="Views\Home\Details.cshtml" />
     <Content Include="Views\Home\Create.cshtml" />
     <Content Include="Views\Home\_ActorsInMovie.cshtml" />
+<<<<<<< HEAD
     <Content Include="Views\Home\Delete.cshtml" />
+=======
+>>>>>>> 30c066fafa3b636dade4ba731a5ee39abf35641d
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

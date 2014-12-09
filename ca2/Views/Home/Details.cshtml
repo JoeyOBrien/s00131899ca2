@@ -1,5 +1,6 @@
 ﻿@model ca2.Models.Movie
 
+<<<<<<< HEAD
 <div class="container">
     <h2>@ViewBag.PageTitle</h2>
     <div class="row">
@@ -202,3 +203,39 @@
             });
     </script>
 }
+=======
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>Movie</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Title)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Title)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.ReleaseDate)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ReleaseDate)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.DirectorId)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.DirectorId)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.MovieId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
+>>>>>>> 30c066fafa3b636dade4ba731a5ee39abf35641d

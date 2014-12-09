@@ -19,6 +19,7 @@
                     @Html.DisplayNameFor(model => model.Director)
                 </th>
                 <th>
+<<<<<<< HEAD
                     @*<a class="btn btn-xs btn-primary" href="@Url.Action("Index", new { sortOrder = @ViewBag.numberOrder })">Release Date</a>*@
                     <a class="btn btn-xs btn-primary" href="@Url.Action("Index", new { sortOrder = @ViewBag.dateOrder })">
                             @if (ViewBag.dateOrder == "ascDate")
@@ -46,6 +47,12 @@
                         
                         }
                         &nbsp;Number
+=======
+                    <a class="btn btn-xs btn-primary" href="@Url.Action("Index", new { sortOrder = @ViewBag.numberOrder })">Release Date</a>
+                </th>
+                <th>
+                    <a class="btn btn-xs btn-primary" href="@Url.Action("Index", new { sortOrder = @ViewBag.numberOrder })">Actor Count</a>
+>>>>>>> 30c066fafa3b636dade4ba731a5ee39abf35641d
                 </th>
                 <th></th>
             </tr>

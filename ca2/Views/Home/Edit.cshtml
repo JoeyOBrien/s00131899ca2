@@ -9,8 +9,11 @@
         <div class="panel-heading">
             <div class="lead">Edit @Model.Title</div>
         </div>
+<<<<<<< HEAD
         </div>
     <div class="panel-body">
+=======
+>>>>>>> 30c066fafa3b636dade4ba731a5ee39abf35641d
 @using (Html.BeginForm())
 {
     @Html.ValidationSummary(true)
@@ -27,10 +30,14 @@
             </div>
             <div class="formgroup col-xs-4">
                 @Html.LabelFor(model => model.ReleaseDate)
+<<<<<<< HEAD
                 <div class='input-group date' id='datetimepicker1'>
                             <input type='text' name="StartDate" value="@Model.ReleaseDate.ToShortDateString()" class="form-control" data-date-format="DD/MM/YYYY"/>
                             <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
                         </div>
+=======
+                @Html.EditorFor(model => model.ReleaseDate)
+>>>>>>> 30c066fafa3b636dade4ba731a5ee39abf35641d
                 @Html.ValidationMessageFor(model => model.ReleaseDate)
             </div>
             <div class="formgroup col-xs-4">
@@ -40,6 +47,7 @@
                 @Html.ValidationMessageFor(model => model.Director.Name)
             </div>
 </div>
+<<<<<<< HEAD
         <div class="form-group">
                     <input type="submit" style="margin:5px" class="btn btn-success" 
                         value="Save" />
@@ -48,12 +56,22 @@
 }
 
     </div>
+=======
+        <p>
+            <input type="submit" value="Save" />
+        </p>
+    </fieldset>
+}
+>>>>>>> 30c066fafa3b636dade4ba731a5ee39abf35641d
 <div class="panel-footer">
             <a class="btn btn-primary" href="@Url.Action("Index")">
                 <span class="glyphicon glyphicon-home"></span>&nbsp;&nbsp;Back to Home Page
             </a>
         </div>
+<<<<<<< HEAD
     </div>
+=======
+>>>>>>> 30c066fafa3b636dade4ba731a5ee39abf35641d
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")

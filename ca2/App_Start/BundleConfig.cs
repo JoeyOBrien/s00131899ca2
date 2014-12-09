@@ -11,10 +11,14 @@ namespace ca2
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
                         "~/Scripts/jquery-{version}.js",
                         "~/Scripts/bootstrap.js",
+<<<<<<< HEAD
                         "~/Scripts/toastr.js",
                         "~/Scripts/moment.js",
                         "~/Scripts/jquery.peity.js",
                         "~/Scripts/Chart.js"));
+=======
+                        "~/Scripts/toastr.js"));
+>>>>>>> 30c066fafa3b636dade4ba731a5ee39abf35641d
 
             bundles.Add(new ScriptBundle("~/bundles/jqueryui").Include(
                         "~/Scripts/jquery-ui-{version}.js"));

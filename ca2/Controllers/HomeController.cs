@@ -5,12 +5,15 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
+<<<<<<< HEAD
 using System.Data;
 using System.Data.Entity;
 using System.Diagnostics;
 using System.Net;
 using System.Net.Http;
 
+=======
+>>>>>>> 30c066fafa3b636dade4ba731a5ee39abf35641d
 namespace ca2.Controllers
 {
     public class HomeController : Controller
@@ -20,6 +23,7 @@ namespace ca2.Controllers
         //
         // GET: /Home/
 
+<<<<<<< HEAD
         public ActionResult Index(string sortOrder)
         {
             if (sortOrder == null) 
@@ -52,6 +56,11 @@ namespace ca2.Controllers
                     break;
             }
             return View(movies.ToList());
+=======
+        public ActionResult Index()
+        {
+            return View(db.Movies.ToList());
+>>>>>>> 30c066fafa3b636dade4ba731a5ee39abf35641d
         }
 
         //
@@ -140,12 +149,21 @@ namespace ca2.Controllers
         // POST: /Home/Edit/5
 
         [HttpPost]
+<<<<<<< HEAD
         public ActionResult Edit(Movie movieToEdit)
         {
             try
             {
                 //db.Entry(movieToEdit).State = System.Data.Entity.EntityState.Modified;
                 db.SaveChanges();
+=======
+        public ActionResult Edit(int id, FormCollection collection)
+        {
+            try
+            {
+                // TODO: Add update logic here
+
+>>>>>>> 30c066fafa3b636dade4ba731a5ee39abf35641d
                 return RedirectToAction("Index");
             }
             catch
@@ -159,18 +177,38 @@ namespace ca2.Controllers
 
         public ActionResult Delete(int id)
         {
+<<<<<<< HEAD
             return View(db.Movies.Find(id));
+=======
+            return View();
+>>>>>>> 30c066fafa3b636dade4ba731a5ee39abf35641d
         }
 
         //
         // POST: /Home/Delete/5
 
+<<<<<<< HEAD
         [HttpPost, ActionName("Delete")]
         public ActionResult DeleteConfirmed(int id)
         {
             db.Movies.Remove(db.Movies.Find(id));
             db.SaveChanges();
             return RedirectToAction("Index");
+=======
+        [HttpPost]
+        public ActionResult Delete(int id, FormCollection collection)
+        {
+            try
+            {
+                // TODO: Add delete logic here
+
+                return RedirectToAction("Index");
+            }
+            catch
+            {
+                return View();
+            }
+>>>>>>> 30c066fafa3b636dade4ba731a5ee39abf35641d
         }
     }
 }
