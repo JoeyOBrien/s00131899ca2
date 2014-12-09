@@ -1,0 +1,36 @@
+﻿@model IEnumerable<ca2.Models.Actor>
+
+@if (Model.Any())
+{
+    <table id="actorTable" class="table table-condensed table-striped" style="table-layout:fixed; margin-bottom: 0px">
+        <tr>
+            <th colspan="3" style="text-align:center">
+                @ViewBag.movieTitle
+            </th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ScreenName)
+                </td>
+                <td>
+                    <span class="badge">@item.Sex.ToString().Substring(0, 1)</span>
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.ActorId }, new { @class = "btn btn-xs btn-primary" })
+                    @*<a onclick="showEditChild('@item.selectedMovieId','@item.ActorId','@item.ScreenName','@item.Sex')" class="btn btn-xs btn-primary">Edit</a>*@
+            @Html.ActionLink("Delete", "Delete", new { id = item.ActorId }, new { @class = "btn btn-xs btn-danger" })
+                </td>
+            </tr>
+        }
+
+    </table>
+}
+else
+{
+    <div>
+        <strong><mark>No Actors listed for @ViewBag.movieTitle</mark></strong>
+    </div>
+}
